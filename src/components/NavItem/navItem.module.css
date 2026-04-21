@@ -1,0 +1,20 @@
+.navLink {
+    display: block;
+    padding-block: 23px;
+    padding-inline: 15px;
+    color: var(--text-color-white-emphasis);
+}
+
+.active {
+    background-color: var(--primary-600-accent);
+    color: var(--text-color-white);
+}
+
+@media (width  >= 1865px ) {
+    .navLink {
+        font-size: var(--font-size-m);
+        padding-block: var(--space-s);
+        padding-inline: var(--space-s);
+
+    }
+}

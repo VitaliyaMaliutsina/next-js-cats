@@ -1,0 +1,59 @@
+.card {
+    position: relative;
+    inline-size: 225px;
+    block-size: 225px;
+    transition: transform 0.4s ease-in;
+
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.43);
+    }
+
+    &:hover .likeButton  {
+        opacity: 1;
+    }
+}
+
+.cardImg {
+    block-size: 100%;
+    object-fit: cover;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.icon {
+    fill: var(--icon-fill-color);
+    stroke: var(--icon-stroke-color);
+
+    transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.likeButton {
+    position: absolute;
+    inline-size: 40px;
+    block-size: 40px;
+    bottom: 0;
+    right: 20px;
+    --icon-stroke-color: var(--heart-color);
+    --icon-fill-color: transparent;
+    transition: transform 0.1s ease-in-out;
+    /*cursor: url("../../assets/cursor/paw-cursor.png") 2 2, pointer;*/
+    opacity: 0;
+
+    &:hover {
+        --icon-stroke-color: var(--heart-color);
+        --icon-fill-color: var(--heart-color);
+    }
+
+    &:active {
+        transform: scale(1.2);
+        --icon-stroke-color: var(--heart-color-active);
+        --icon-fill-color: var(--heart-color-active);
+    }
+}
+
+.active {
+    --icon-stroke-color: var(--heart-color-active);
+    --icon-fill-color: var(--heart-color-active);
+}
+

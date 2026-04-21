@@ -1,0 +1,18 @@
+:root {
+    --primary-600-accent: #1E88E5;
+    --primary-500-accent: #2196F3;
+
+    --heart-color: #F24E1E;
+    --heart-color-active: #FF3A00;
+
+    --text-color-white: #FFF;
+    --text-color-white-emphasis: rgba(255, 255, 255, 0.7);
+
+    --space-xs: 23px;
+    --space-s: 48px;
+    --space-m: 52px;
+    --space-l: 62px;
+
+    --font-size-s: 0.9rem;
+    --font-size-m: 2rem;
+}

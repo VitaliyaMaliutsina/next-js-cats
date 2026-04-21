@@ -1,0 +1,44 @@
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: var(--space-xs);
+}
+
+.title {
+    text-align: center;
+}
+
+.link {
+    background-color: var(--primary-500-accent);
+    padding-inline: var(--space-xs);
+    padding-block: 10px;
+    border-radius: 10px;
+    color: var(--text-color-white);
+    transition: transform 0.3s ease-in-out;
+ /*   cursor: url("../../assets/cursor/paw-cursor.png") 2 2, pointer;*/
+
+    &:hover {
+        background-color: var(--primary-600-accent);
+        color: var(--text-color-white-emphasis);
+    }
+
+    &:active {
+        transform: scale(1.2);
+    }
+
+}
+
+@media (width  >= 1865px ) {
+    .title {
+        font-size: var(--font-size-m);
+    }
+
+    .link {
+        padding-inline: var(--space-l);
+        padding-block: var(--space-xs);
+        border-radius: 10px;
+        font-size: var(--font-size-m);
+    }
+}
