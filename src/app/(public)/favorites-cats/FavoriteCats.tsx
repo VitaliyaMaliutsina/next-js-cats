@@ -11,16 +11,17 @@ import {TGetCatsCardResponse} from "@/shared/types";
 
 export const FavoriteCats = () => {
     const [favoritesCats, setFavoritesCats] = useState(() => {
-        const favoriteCat = localStorage.getItem(FAVORITE_CAT_KEY);
+        if(typeof window !== "undefined") {
+            const favoriteCat = localStorage.getItem(FAVORITE_CAT_KEY);
 
-        if (favoriteCat) {
-            return JSON.parse(favoriteCat);
+            if (favoriteCat) {
+                return JSON.parse(favoriteCat);
+            }
         }
+
 
         return [];
     });
-
-    console.log(favoritesCats)
 
     return (
         <section className="section">
