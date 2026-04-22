@@ -24,7 +24,7 @@ export const FavoriteCats = () => {
         return [];
     });
 
-    const x = (id: string) => {
+    const handleDeleteFavoriteCat = (id: string) => {
         setFavoritesCats(deleteFavoriteCat(id))
     }
 
@@ -45,7 +45,7 @@ export const FavoriteCats = () => {
                             <Card
                                 key={cat.id}
                                 url={cat.url}
-                                onClick={() => x(cat.id)}
+                                onClick={() => handleDeleteFavoriteCat(cat.id)}
                             />
                         );
                     })
