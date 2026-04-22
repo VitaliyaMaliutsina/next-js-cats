@@ -1,3 +1,13 @@
 .blockSpace {
+    padding-block: var(--space-s);
+}
+
+.blockSpaceStart {
     padding-block-start: var(--space-s);
+}
+
+@media (width  >= 1865px ) {
+    .textLoading {
+        font-size: 2rem;
+    }
 }
