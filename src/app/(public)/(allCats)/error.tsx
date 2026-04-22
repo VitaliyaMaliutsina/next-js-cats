@@ -2,7 +2,7 @@
 import styles from "./allCats.module.css";
 const Error = () => {
     return (
-        <p className={styles.blockSpace}>
+        <p className={styles.blockSpaceStart}>
             Произошла ошибка при загрузке котиков :(
         </p>
     );
