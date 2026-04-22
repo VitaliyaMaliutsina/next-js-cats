@@ -9,7 +9,7 @@ export const getCats = async  (portion: number) => {
             headers: {
                 Authorization: `x-api-key ${process.env.DB_PASSWORD}`,
             },
-            next: {revalidate: 3000}
+
         }
     );
 
