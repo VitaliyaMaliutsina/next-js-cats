@@ -1,7 +1,7 @@
 "use client"
 
 import styles from "./favoriteCats.module.css";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 
 import {FAVORITE_CAT_KEY} from "@/constants/localStorageKey";
 import Link from "next/link";
@@ -9,25 +9,25 @@ import {Card} from "@/components/Card/Card";
 import {TGetCatsCardResponse} from "@/shared/types";
 import {deleteFavoriteCat} from "@/services/api";
 
-
 export const FavoriteCats = () => {
-    const [favoritesCats, setFavoritesCats] = useState(() => {
-        if(typeof window !== "undefined") {
-            const favoriteCat = localStorage.getItem(FAVORITE_CAT_KEY);
+    const [favoritesCats, setFavoritesCats] = useState([]);
+    const [isHydrated, setIsHydrated] = useState(false)
 
-            if (favoriteCat) {
-                return JSON.parse(favoriteCat);
-            }
+
+    useEffect(() => {
+        const favoriteCat = localStorage.getItem(FAVORITE_CAT_KEY);
+        if (favoriteCat) {
+            setFavoritesCats(JSON.parse(favoriteCat));
         }
+            setIsHydrated(true)
+    }, []);
 
 
-        return [];
-    });
+    if(!isHydrated) return null;
 
     const handleDeleteFavoriteCat = (id: string) => {
         setFavoritesCats(deleteFavoriteCat(id))
     }
-
 
     return (
         <section className="section">
@@ -45,6 +45,7 @@ export const FavoriteCats = () => {
                             <Card
                                 key={cat.id}
                                 url={cat.url}
+                                isActive
                                 onClick={() => handleDeleteFavoriteCat(cat.id)}
                             />
                         );

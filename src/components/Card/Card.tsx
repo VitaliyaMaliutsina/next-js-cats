@@ -1,5 +1,3 @@
-"use client"
-
 import styles from "./card.module.css";
 import Image from "next/image";
 import {HeartIcon} from "@/components/HeartIcon/HeartIcon";
@@ -8,11 +6,10 @@ import {clsx} from "clsx";
 type Props = {
     url: string;
     onClick?: () => void;
+    isActive: boolean;
 };
 export const Card = (props: Props) => {
-    const {url, onClick} = props
-
-    const isActive = false
+    const {url, onClick, isActive = false} = props
 
     return (
         <div className={styles.card}>

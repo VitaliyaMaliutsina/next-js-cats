@@ -9,13 +9,12 @@ type Props = {
 }
 
 const AllCats =  (prop: Props) => {
-
     const { cats } = prop
 
     return (
             <div className={"container"}>
                 {cats.map((cat: TGetCatsCardResponse) => {
-                    return <Card url={cat.url} key={cat.id} onClick={() => addFavoriteCat(cat.id, cat.url)} />
+                    return <Card url={cat.url} key={cat.id} onClick={() => addFavoriteCat(cat.id, cat.url)} isActive />
                 })}
             </div>
     );
