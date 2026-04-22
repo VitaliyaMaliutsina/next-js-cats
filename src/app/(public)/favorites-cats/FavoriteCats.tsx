@@ -7,6 +7,7 @@ import {FAVORITE_CAT_KEY} from "@/constants/localStorageKey";
 import Link from "next/link";
 import {Card} from "@/components/Card/Card";
 import {TGetCatsCardResponse} from "@/shared/types";
+import {deleteFavoriteCat} from "@/services/api";
 
 
 export const FavoriteCats = () => {
@@ -22,6 +23,11 @@ export const FavoriteCats = () => {
 
         return [];
     });
+
+    const x = (id: string) => {
+        setFavoritesCats(deleteFavoriteCat(id))
+    }
+
 
     return (
         <section className="section">
@@ -39,7 +45,7 @@ export const FavoriteCats = () => {
                             <Card
                                 key={cat.id}
                                 url={cat.url}
-                                id={cat.id}
+                                onClick={() => x(cat.id)}
                             />
                         );
                     })

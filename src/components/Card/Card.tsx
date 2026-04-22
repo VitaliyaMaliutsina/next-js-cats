@@ -4,14 +4,13 @@ import styles from "./card.module.css";
 import Image from "next/image";
 import {HeartIcon} from "@/components/HeartIcon/HeartIcon";
 import {clsx} from "clsx";
-import {addFavoriteCat} from "@/services/api";
 
 type Props = {
     url: string;
-    id: string;
+    onClick?: () => void;
 };
 export const Card = (props: Props) => {
-    const {url, id} = props
+    const {url, onClick} = props
 
     const isActive = false
 
@@ -26,7 +25,7 @@ export const Card = (props: Props) => {
                 loading={"lazy"}
                 unoptimized={url.endsWith(".gif")}
             />
-            <button className={clsx(styles.likeButton, isActive ? styles.active: "")} onClick={() => addFavoriteCat(id, url)} aria-label="Добавить в избранное">
+            <button className={clsx(styles.likeButton, isActive ? styles.active: "")} onClick={onClick} aria-label="Добавить в избранное">
                 <HeartIcon className={clsx(styles.icon, isActive ? styles.active : "")} />
             </button>
         </div>

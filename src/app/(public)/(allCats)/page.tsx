@@ -1,16 +1,13 @@
 import {getCats} from "@/services/api";
-import {Card} from "@/components/Card/Card";
+import AllCats from "@/app/(public)/(allCats)/AllCats";
 
 const AllCatsPage = async () => {
     const cats = await getCats(30)
 
+
     return (
         <section className={"section"}>
-            <div className={"container"}>
-                {cats.map((cat) => {
-                    return <Card url={cat.url} id={cat.id} key={cat.id} />
-                })}
-            </div>
+            <AllCats cats={cats} />
         </section>
     );
 };
