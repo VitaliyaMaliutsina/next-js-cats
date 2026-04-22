@@ -14,11 +14,24 @@
     }
 }
 
-.cardImg {
+/*.cardImg {
     block-size: 100%;
     object-fit: cover;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
+}*/
+
+.cardImg {
+    block-size: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.cardImg.loaded {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .icon {
