@@ -1,1 +1,1 @@
-export const CATS_PORTION = 30;
+export const CATS_PORTION = 40;
