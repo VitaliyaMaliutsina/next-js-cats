@@ -21,6 +21,7 @@ const AllCats = (prop: Props) => {
 
   const { ref, inView } = useInView({
     threshold: 0,
+    rootMargin: "0px 0px 400px 0px",
   });
 
   const handleAddFavoriteCat = (id: string, url: string) => {

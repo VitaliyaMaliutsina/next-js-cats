@@ -3,7 +3,7 @@ import "./globals.css";
 import { Header } from "@/components/Header/Header";
 
 export const metadata: Metadata = {
-  title: "cat gallery",
+  title: "Бесконечная галерея с котиками",
   description: "Залипательная галерия с милыми котиками",
 };
 
