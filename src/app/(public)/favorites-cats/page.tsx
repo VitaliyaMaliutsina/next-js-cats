@@ -1,16 +1,16 @@
-import {FavoriteCats} from "@/app/(public)/favorites-cats/FavoriteCats";
-import {Metadata} from "next";
+import { FavoriteCats } from "@/app/(public)/favorites-cats/FavoriteCats";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Страница любимых котиков"
-}
-
-const FavoritesCatsPage = () => {
-    return (
-        <div>
-           <FavoriteCats />
-        </div>
-    );
+  title: "Страница любимых котиков",
 };
 
-export default FavoritesCatsPage
+const FavoritesCatsPage = () => {
+  return (
+    <div>
+      <FavoriteCats />
+    </div>
+  );
+};
+
+export default FavoritesCatsPage;
