@@ -6,8 +6,12 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "cdn2.thecatapi.com",
-        port: "",
-        pathname: "/images/**",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "*.media.tumblr.com",
+        pathname: "/**",
       },
     ],
   },
