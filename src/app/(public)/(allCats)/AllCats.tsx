@@ -19,10 +19,22 @@ const AllCats = (prop: Props) => {
   const [catsData, setCatsData] = useState<isLikedCat[]>(cats);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { ref, inView } = useInView({
+  const { ref: bottomAnchor, inView: bottomInView } = useInView({
     threshold: 0,
     rootMargin: "0px 0px 400px 0px",
   });
+
+  const { ref: topAnchor, inView: topInView } = useInView({
+    threshold: 0,
+  });
+
+  const handleUpDown = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
 
   const handleAddFavoriteCat = (id: string, url: string) => {
     addFavoriteCat(id, url);
@@ -38,23 +50,29 @@ const AllCats = (prop: Props) => {
   };
 
   useEffect(() => {
-    if (inView) {
+    if (bottomInView && !isLoading) {
       const loadMoreCats = async () => {
         setIsLoading(true);
-        const newCate = await getCats(CATS_PORTION);
+        try {
+          const newCate = await getCats(CATS_PORTION);
 
-        const cats: isLikedCat[] = newCate.map((cat) => {
-          return { ...cat, isLiked: false };
-        });
-        setCatsData((prev) => [...prev, ...cats]);
+          const cats: isLikedCat[] = newCate.map((cat) => {
+            return { ...cat, isLiked: false };
+          });
+          setCatsData((prev) => [...prev, ...cats]);
+        } finally {
+          setIsLoading(false);
+        }
       };
-      setIsLoading(false);
+
       void loadMoreCats();
     }
-  }, [inView]);
+  }, [bottomInView, topInView, isLoading]);
 
   return (
     <>
+      <div ref={topAnchor}></div>
+
       <div className={"container"}>
         {catsData.map((cat: isLikedCat, index: number) => {
           return (
@@ -67,7 +85,15 @@ const AllCats = (prop: Props) => {
           );
         })}
       </div>
-      <div ref={ref}></div>
+      {!topInView && (
+        <div>
+          <button onClick={handleUpDown} className={styles.fixed}>
+            ↑
+          </button>
+        </div>
+      )}
+
+      <div ref={bottomAnchor}></div>
       {isLoading && (
         <p className={clsx(styles.textLoading, styles.blockSpace)}>... Загружаем еще котиков ...</p>
       )}

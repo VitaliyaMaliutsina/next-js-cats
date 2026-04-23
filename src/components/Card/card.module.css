@@ -14,13 +14,6 @@
     }
 }
 
-/*.cardImg {
-    block-size: 100%;
-    object-fit: cover;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}*/
-
 .cardImg {
     block-size: 100%;
     object-fit: cover;
