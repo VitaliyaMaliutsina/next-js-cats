@@ -13,7 +13,7 @@ export const Card = (props: Props) => {
   const { url, onClick, isActive = false } = props;
   const [loaded, setLoaded] = useState(false);
   return (
-    <div className={styles.card}>
+    <article className={styles.card}>
       <Image
         src={url}
         alt="Изображение милокого котика"
@@ -31,6 +31,6 @@ export const Card = (props: Props) => {
       >
         <HeartIcon className={clsx(styles.icon, isActive ? styles.active : "")} />
       </button>
-    </div>
+    </article>
   );
 };

@@ -66,8 +66,8 @@ const AllCats = (prop: Props) => {
             />
           );
         })}
-        <div ref={ref}></div>
       </div>
+      <div ref={ref}></div>
       {isLoading && (
         <p className={clsx(styles.textLoading, styles.blockSpace)}>... Загружаем еще котиков ...</p>
       )}
